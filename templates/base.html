@@ -12,7 +12,7 @@
         <meta name="author" content="" />
         <meta name="csrf-token" content="{{ csrf_token }}">
         {% block title %}
-            <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon"/>
+            <link rel="shortcut icon" href="{% static 'images/logo2.png' %}" type="image/x-icon"/>
             <title>AnchorInv</title>
         {% endblock %}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +64,7 @@
                     <div class="col-12 px-0">
                         <nav class="main-nav">
                             <a href="{% url 'index' %}" class="logo">
-                                <img src="{% static "images/logo.png" %}" alt="" />
+                                <img src="{% static "images/logo2.png" %}" alt="" />
                             </a>                     
                             <ul class="nav" id="nav">
                                 {% if request.user.is_authenticated %}
@@ -293,7 +293,7 @@
                             <div class="footer-widget footer-about-us text-center">
                                 <div class="logo mt-2">
                                     <a href="{% url 'index' %}">
-                                        <img src="{% static "images/logo.png" %}" alt=""/>
+                                        <img src="{% static "images/logo3.png" %}" alt=""/>
                                     </a>
                                 </div>
                             </div>
