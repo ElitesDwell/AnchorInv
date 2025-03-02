@@ -54,7 +54,7 @@ def register(request):
             message = "Thank you for registering with us! Please click the link below to verify your email and complete your registration."
             cta_text = "Verify Email"
             logo_url = f"{get_current_site(request).domain}/static/images/logo2.png"
-            company_name = "Stapfund"
+            company_name = "AnchorInv"
             
             if User.objects.filter(email__iexact=email).exists():
                 return JsonResponse({'error':"Email already exist, try login..."})
@@ -129,7 +129,7 @@ def resend_link(request):
         cta_url = f"{get_current_site(request).domain}/account/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{account_activation_token.make_token(user)}"
         cta_text = "Verify Email"
         logo_url = f"{get_current_site(request).domain}/static/images/logo2.png"
-        company_name = "Stapfund"
+        company_name = "AnchorInv"
         
         verification_email = EmailMessage(
             subject=subject,
@@ -181,7 +181,7 @@ def password_reset_request(request):
                 cta_url = f"{get_current_site(request).domain}/account/reset/{user_uid}/{user_token}"
                 cta_text = "Reset Password"
                 logo_url = f"{get_current_site(request).domain}/static/images/logo2.png"
-                company_name = "Stapfund"
+                company_name = "AnchorInv"
                 website_url = 'https://192.168.43.88:8000'
                 
                 password_reset_email = EmailMessage(
