@@ -1,0 +1,390 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <meta name="csrf-token" content="{{ csrf_token }}">
+        {% block title %}
+            <link rel="shortcut icon" href="{% static 'images/logo2.png' %}" type="image/x-icon"/>
+            <title>Stapfund Investment</title>
+        {% endblock %}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+        
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/animated.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/owl.css' %}" />
+    </head>
+
+    <body>
+        {% comment %} Messages alert {% endcomment %}
+        {% for message in messages %}
+            <div class="msgs_info">
+                <p class="dj_err_msg">{{message}}</p>
+                <div class="close_error position-absolute text-light fs-5" style="top:2px;right:10px;cursor:pointer;"><i class="fas fa-times"></i></div>
+            </div>
+        {% endfor %}
+
+
+        <!-- ***** Preloader Start ***** -->
+        <div id="js-preloader" class="js-preloader">
+            <div class="preloader-inner">
+                <span class="dot"></span>
+                <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Preloader End ***** -->
+
+        <!-- ***** Header Area Start ***** -->
+        <header class="header-area header-sticky wow" data-wow-duration="0.75s" data-wow-delay="0s">
+            <div class="container-fluid">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 px-0">
+                        <nav class="main-nav">
+                            <a href="{% url 'index' %}" class="logo">
+                                <img src="{% static "images/logo2.png" %}" alt="" />
+                            </a>                     
+                            <ul class="nav" id="nav">
+                                {% if request.user.is_authenticated %}
+                                    <li>Hi, <span>{{request.user.full_name}}</span></li>
+                                {% else %} 
+                                    <li>Hi, <span>Guest</span></li>
+                                {% endif %}
+                                <li><a href="{% url 'index' %}#invest">Invest</a></li>
+                                <li><a href="{% url 'index' %}#news">News</a></li>
+                                <li><a href="{% url 'about' %}" class="">About</a></li>
+                                <li><a href="#footer" class="">Contact</a></li>
+                                <li><a href="{% url 'index' %}#faqs">FAQs</a></li>
+                                <li>
+                                    <div class="gradient-button dashlog mt-wrp d-md-flex">
+                                        {% if request.user.is_authenticated %}
+                                            {% if request.user.is_verified %}
+                                                <a id="dashboardLink" class="modal_trig" href="{% url 'dashboard' %}">Dashboard  &nbsp; <i class="fas fa-th-large"></i></a>
+                                            {% else %}
+                                                <a class="modal_trig show_ver_email" href="#verifyEmail">Dashboard  &nbsp; <i class="fas fa-th-large"></i></a>
+                                            {% endif %}
+                                                <form class="logout_form">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="fw-bold logout border-0">
+                                                        <span class="d-md-none">Logout &nbsp;</span>
+                                                        <i class="fas fa-sign-out-alt"></i>
+                                                    </button>
+                                                </form>
+                                                <button class="fw-bold border-0 logout-spinner d-none" disabled><i class="fas fa-spinner fa-spin"></i></button>
+                                        {% else %}
+                                            <a class="modal_trigger modal_trig text-dark" href="#modal">Get Started &nbsp; <i class="fa fa-sign-in-alt"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </li>
+                            </ul>
+                            {% comment %} <span class="intro">Hi {{request.user.full_name}}</span> {% endcomment %}
+                            <a class="menu-trigger" id="menuTrigger">
+                                <span>Menu</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div id="modal" class="popupContainer" style="display: none">
+            <div class="popupHeader">
+                <i class="fas fa-arrow-left text-white gsba back_btn"></i> &nbsp;&nbsp; <span class="header_title">Sign Up || Sign In</span>
+                <span class="modal_close"><i class="fas fa-times"></i></span>
+            </div>
+
+            <section class="popupBody p-0">
+                <div class="reg_login_nav p-3 py-4">
+                    <div class="action_btns">
+                        <div class="one_half">
+                            <a href="#" id="register_form">Sign Up &nbsp;<i class="fas fa-user-plus"></i></a>
+                        </div>
+                        <div class="one_half">
+                            <a href="#" id="login_form">Sign In &nbsp;<i class="fas fa-sign-in-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user_register form_wrp">
+                    <div class="screen">
+                        <span class="modal_close"><i class="fas fa-times"></i></span>
+                        <div class="screen__content">
+                            <h3>Sign Up</h4>
+                            <form id="reg_form" class="login">
+                                {% csrf_token %}
+                                <div class="login__field">
+                                    <i class="fas fa-user"></i>
+                                    <input name="full_name" type="text" class="login__input" placeholder="Full name">
+                                    <p id="fnerr"></p>
+                                </div>
+                                <div class="login__field">
+                                    <i class="fas fa-envelope"></i>
+                                    <input name="email" type="email" class="login__input" placeholder="Email">
+                                    <p id="emerr"></p>
+                                </div>
+                                <div class="login__field">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <input name="phone" type="text" class="login__input phone-input" placeholder="Phone number">
+                                    <p id="pherr"></p>
+                                </div>
+                                <div class="login__field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="password" type="password" class="login__input password" placeholder="Password" id="reg_password">
+                                    <i class="fas fa-eye togglePassword"></i><i class="fas fa-eye-slash togglePassword"></i>
+                                    <p id="pwderr"></p>
+                                </div>
+                                <div class="login__field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="password2" type="password" class="login__input password" placeholder="Confirm password">
+                                    <i class="fas fa-eye togglePassword"></i><i class="fas fa-eye-slash togglePassword"></i>
+                                    <p id="pwderr2"></p>
+                                </div>
+                                <div class="make-payment-btn">
+                                    <button class="w-100 form_buttons" id="regBtn">Sign Up &nbsp;<i class="fas fa-user-plus"></i></button>
+                                </div>
+                                <div class="forgot-pass d-flex justify-content-evenly mt-2">
+                                    <a class="goto_signin" style="cursor:pointer;color:#4b8ef1;font-weight:500;">Sign In</a>
+                                    <a href="{% url 'terms_conditions' %}">Terms &amp; Condition</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="screen__background rounded">
+                            <span class="screen__background__shape screen__background__shape4"></span>
+                            <span class="screen__background__shape screen__background__shape3"></span>		
+                            <span class="screen__background__shape screen__background__shape2"></span>
+                            <span class="screen__background__shape screen__background__shape1"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user_login form_wrp">
+                    <div class="screen">
+                        <span class="modal_close"><i class="fas fa-times"></i></span>
+                        <div class="screen__content">
+                            <h3>Sign In</h4>
+                            <form id="login_form" class="login">
+                                {% csrf_token %}
+                                <p class="" id="invaliderr"></p>
+                                <div class="login__field">
+                                    <i class="fas fa-envelope"></i>
+                                    <input name="login_email" type="email" class="login__input" placeholder="Email">
+                                    <p id="login_emerr"></p>
+                                </div>
+                                <div class="login__field">
+                                    <i class="fas fa-lock"></i>
+                                    <input name="login_password" type="password" class="login__input password" placeholder="Password">
+                                    <i class="fas fa-eye togglePassword"></i><i class="fas fa-eye-slash togglePassword"></i>
+                                    <p id="login_pwderr"></p>
+                                </div>
+                                <div class="make-payment-btn">
+                                    <button class="w-100 form_buttons" id="loginBtn">Sign In &nbsp;<i class="fas fa-sign-in-alt"></i></button>
+                                </div>
+                                <div class="forgot-pass d-flex justify-content-evenly mt-2">
+                                    <a class="goto_signup" style="cursor:pointer;color:#4b8ef1;font-weight:500;">Sign Up</a>
+                                    <a href="#forgotPassword" class="forgot-password-btn" style="cursor:pointer;color:#4b8ef1;font-weight:400;">Forgotten password?</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="screen__background">
+                            <span class="screen__background__shape screen__background__shape4"></span>
+                            <span class="screen__background__shape screen__background__shape3"></span>		
+                            <span class="screen__background__shape screen__background__shape2"></span>
+                            <span class="screen__background__shape screen__background__shape1"></span>
+                        </div>
+                    <div>
+                </div>
+            </section>
+        </div>
+
+        <div id="forgotPassword" class="forgot_password" style="display: none; z-index:9999;">
+            <section class="popupBody p-0">
+                <div class="form_wrp2">
+                    <div class="screen">
+                        <span class="modal_close1"><i class="fas fa-times"></i></span>
+                        <div class="screen__content">
+                            <h3>Forgot Password</h4>
+                            <form id="forgot-password-form" class="login">
+                                {% csrf_token %}
+                                <div class="login__field">
+                                    <i class="fas fa-envelope"></i>
+                                    <input name="forgot_pass_email" type="email" class="login__input" placeholder="Email">
+                                    <p id="fp_emerr"></p>
+                                </div>
+                                <div class="make-payment-btn mt-1">
+                                    <button class="w-100 form_buttons" id="forgotPasswordBtn">Submit &nbsp;<i class="fas fa-paper-plan"></i></button>
+                                </div>
+                                <div class="mt-2 text-center">
+                                    Remembered password?&nbsp; <a href="#modal" class="goto_signin2" style="cursor:pointer;color:#4b8ef1;font-weight:500;">Sign In</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="screen__background rounded">
+                            <span class="screen__background__shape screen__background__shape4"></span>
+                            <span class="screen__background__shape screen__background__shape3"></span>		
+                            <span class="screen__background__shape screen__background__shape2"></span>
+                            <span class="screen__background__shape screen__background__shape1"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="verifyEmail" class="verify_email" style="display: none;z-index:9999;">
+            <section class="popupBody p-0">
+                <div class="screen">
+                    <span class="modal_close2"><i class="fas fa-times"></i></span>
+                    <div class="screen__content">
+                        <h3>Verification</h4>
+                        <h5 class="text-center border-bottom p-0 m-0 my-2 mt-4" style="font-size:18px;color: #01377e;">Please verify your email</h5>
+                        <p class="fs-6 text-center mt-2" style="line-height:22px;font-weight:400;">
+                            A verification link has been sent to your <br>
+                            email. Please check your email and click <br>
+                            on the link to complete your registration.
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            {% csrf_token %}
+                            <a id="resendEmailBtn" class="form_buttons btn btn-round btn-sm py-1 px-3 mt-4 me-4">Resend link</a>
+                        </div>
+                    </div>
+                    <div class="screen__background rounded">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>		
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <a href="#verifyEmail" class="show_ver_email position-absolute d-none" style="bottom:0;right:0;z-index:-9;">show_ver_email</a>
+
+        <input id="userVerStatus" type="hidden" value="{{ request.user.is_verified }}"/>
+        {% block content %}
+
+        {% endblock content %}
+
+        {% block footer %}
+            <footer id="footer">
+                <div class="container footer-wrp">
+                    <div class="row mx-auto">
+                        <div class="col-12 col-md-6 col-lg-4 m-auto">
+                            <div class="footer-widget footer-about-us text-center">
+                                <div class="logo mt-2">
+                                    <a href="{% url 'index' %}">
+                                        <img src="{% static "images/logo2.png" %}" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="footer-widget">
+                                <h4>Useful Links</h4>
+                                <ul class="text-center">
+                                    <li><a href="{% url 'index' %}#invest">Invest</a></li>
+                                    <li><a href="{% url 'index' %}#news">News</a></li>
+                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+                                    <li><a href="{% url 'terms_conditions' %}">Terms &amp; Condition</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-5 mt-lg-0 col-lg-4">
+                            <div class="footer-widget">
+                                <h4>Contact Us</h4>
+                                {% comment %} <p></p> {% endcomment %}
+                                <p><a>623-202-0753</a></p>
+                                <p><a>support@stapfund.com</a></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="copyright-text">
+                            <p>Copyright © Stapfund Investment 2024. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        {% endblock footer %}
+
+        <div id="lean_overlay2"></div>
+
+        {% block altjs %}
+        {% endblock %}
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        {% comment %} <script src="{% static 'jquery/jquery.min.js' %} "></script> {% endcomment %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+        <script src="{% static 'js/owl-carousel.js' %} "></script>
+        <script src="{% static 'js/animation.js' %} "></script>
+        <script src="{% static 'js/imagesloaded.js' %} "></script>
+        <script src="{% static 'js/popup.js' %} "></script>
+        <script src="{% static 'js/custom.js' %} "></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                $('.msgs_info').fadeIn().delay(5000).fadeOut();
+                $('.dj_err_msg').fadeIn().delay(5000).fadeOut();
+
+                $('.close_error').click(function () {
+                    $('.msgs_info').hide()
+                    $('.dj_err_msg').hide()
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function checkUserVerStatus() {
+                    let userVerStatus = document.getElementById('userVerStatus').value;
+                    if(userVerStatus == 'False') { 
+                        $(".show_ver_email").click();
+                    }
+                }
+                setTimeout(checkUserVerStatus, 5000);
+            
+                /*
+                function refreshSection(element) {
+                    $('#' + element).load(location.href + ' #' + element + ' > *', function() {
+                        console.log('Refreshed ' + element); 
+                        console.log(document.getElementById('userVerStatus').value);
+                    });
+                }
+
+                setInterval(function() {
+                    refreshSection('userVerStatus');  
+                    checkUserVerStatus();  
+                }, 5000); 
+                */
+            });
+            
+        </script>
+    </body>
+</html>
+
+
+

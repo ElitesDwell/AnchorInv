@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+{% load static %} 
+
+{% block content %}
+    <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                                <div class="row">
+                                    <div class="col-lg-12 banner-wrp">
+                                        <h2>Invest Smart, Invest Safe, Invest with Us</h2>
+                                        <p>
+                                            With a focus on transparency and growth, 
+                                            we’re here to help you achieve your financial 
+                                            goals with confidence.
+                                        </p>
+                                        <div class="make-payment-btn refreshBanner">
+                                            {% if request.user.is_authenticated %}
+                                                <a class="btn fw-bold" href="{% url 'index' %}#invest" style="box-shadow:0 0 2px 2px #fff;">Start Investing &nbsp;<i class="fas fa-chart-line"></i></a>
+                                            {% else %}
+                                                <button class="modal_trigger" href="#modal">Get Started &nbsp; <i class="fas fa-sign-in-alt"></i></button>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-lg-6">
+                        <div class="right-image wow fadeInRight mt-5 pt-5 pt-lg-0 mt-lg-0" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <img src="{% static "images/hero2.png" %}" alt="" loading="lazy"/>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="section-heading">
+                    <h4>About <em>What We Do</em> &amp; Who We Are</h4>
+                    <img src="{% static "images/heading-line-dec.png" %}" alt=""/>
+                    <p class="aup">
+                        STAPFUND INVESTMENT is a trusted investment platform 
+                        offering a range of secure and guaranteed investment opportunities. 
+                        We provide data-driven insights to help you make informed 
+                        decisions, guiding you towards achieving your financial 
+                        goals with confidence.
+                    </p>
+                    </div>
+                    <div class="row">
+                    <div class="col-6">
+                        <div class="box-item text-center">
+                            <img src="{% static "images/secured-investment.png" %}" loading="lazy"/>
+                            <h4>Secured Investment</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="box-item text-center">
+                            <img src="{% static "images/roi.png" %}" loading="lazy"/>
+                            <h4>100% Guaranteed ROI</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="box-item text-center">
+                            <img src="{% static "images/asset-management.png" %}" loading="lazy"/>
+                            <h4>Assets Management</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="box-item text-center">
+                            <img src="{% static "images/support.png" %}" loading="lazy"/>
+                            <h4>24/7 Support &amp; Help</h4>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 my-auto">
+                    <div class="right-image">
+                        <img src="{% static "images/hero4.png" %}" alt="" loading="lazy"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="why-us section mt-5 py-lg-3">
+        <div class="container-fluid px-0">
+            <div class="row justify-content-center px-3 px-sm-5 py-5">
+                <div class="layer"></div>
+                <div class="col-12 position-relative">
+                <div class="">
+                    <h2 class="text-center mb-4">Why Choose <b>STAPFUND</b> Investment...?</h2>
+                    <p>
+                        <b>Stapfund Investment</b> is a leading investment platform dedicated to helping individuals and businesses achieve their financial goals. Our platform offers a range of secure and guaranteed investment opportunities designed to provide consistent returns and peace of mind. With a team of experienced financial experts and cutting-edge technology, we ensure that your investments are managed with the highest level of professionalism and transparency.
+                    </p>
+                    <p>
+                        We understand that trust is paramount when it comes to investing your hard-earned money. That's why we prioritize security and reliability in all our investment offerings. Our platform is built on robust security protocols to protect your data and assets, and we provide regular updates and insights to keep you informed about your investments' performance.
+                    </p>
+                    <p>
+                        At Stapfund Investment, we are committed to delivering guaranteed profits to our clients. Our investment strategies are backed by thorough research and analysis, ensuring that you receive the best possible returns on your investments. Whether you are a seasoned investor or just starting, our platform is designed to cater to your unique needs and help you grow your wealth with confidence.
+                    </p>
+                    <p>
+                        Join Stapfund Investment today and take the first step towards a secure and prosperous financial future. With our expert guidance and guaranteed profit opportunities, you can achieve your financial goals and enjoy peace of mind knowing that your investments are in safe hands.
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section my-4 py-0 my-md-5 py-md-2">
+        <h4 class="p-0 px-4 m-0 mb-4 text-center" style="color:#062553;">Trusted by world-class investment and research teams</h4>
+        <div class="container-fluid px-0">
+            <div class="marquee py-2">
+                <ul class="marquee-content">
+                    <li><img src="https://imgur.com/bRLrW9o.png" loading="lazy" alt="Image 1"></li>
+                    <li><img src="https://imgur.com/rgnlDBK.png" loading="lazy" alt="Image 2"></li>
+                    <li><img src="https://imgur.com/xfVozpR.png" loading="lazy" alt="Image 3"></li>
+                    <li><img src="https://imgur.com/hw7HLFt.png" loading="lazy" alt="Image 4"></li>
+                    <li><img src="https://imgur.com/QZhNFuq.png" loading="lazy" alt="Image 5"></li>
+                    <li><img src="https://imgur.com/ZFLwhdY.png" loading="lazy" alt="Image 6"></li>
+                    <li><img src="https://imgur.com/ux10D0l.png" loading="lazy" alt="Image 7"></li>
+                    <li><img src="https://imgur.com/4tSMyZT.png" loading="lazy" alt="Image 8"></li>
+                    <li><img src="https://imgur.com/jESEpVx.png" loading="lazy" alt="Image 9"></li>
+                    <li><img src="https://imgur.com/qRQpfeW.png" loading="lazy" alt="Image 10"></li>
+                    <li><img src="https://imgur.com/bRLrW9o.png" loading="lazy" alt="Image 11"></li>
+                    <li><img src="https://imgur.com/rgnlDBK.png" loading="lazy" alt="Image 12"></li>
+                    <li><img src="https://imgur.com/xfVozpR.png" loading="lazy" alt="Image 13"></li>
+                    <li><img src="https://imgur.com/hw7HLFt.png" loading="lazy" alt="Image 14"></li>
+                    <li><img src="https://imgur.com/QZhNFuq.png" loading="lazy" alt="Image 15"></li>
+                </ul>
+
+                <div class="data-set">
+                    <div>
+                        <h3 class="counter" data-target="724000">0</h3>
+                        <i class="fas fa-users"></i>
+                        <small>Users</small>
+                    </div>
+                    <div>
+                        <h3 class="counter" data-target="582000">0</h3>
+                        <i class="fas fa-chart-line"></i>
+                        <small>Investments</small>
+                    </div>
+                    <div>
+                        <h3 class="counter" data-target="284000000">0</h3>
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <small>Funds</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="news" class="charts flex-container">
+        <div class="flex-item">
+            <div class="tradingview-widget-container" id="widgetOne">
+                <div class="tradingview-widget-container__widget"></div>
+            </div>
+            <i class="fas fa-spinner fa-spin text-primary" id="spinnerOne"></i>
+        </div> 
+        <div class="flex-item">
+            <div class="tradingview-widget-container" id="widgetTwo">
+                <div class="tradingview-widget-container__widget"></div>
+            </div>
+            <i class="fas fa-spinner fa-spin text-primary" id="spinnerTwo"></i>
+        </div> 
+        <div class="flex-item">
+            <div class="tradingview-widget-container" id="widgetThree">
+                <div class="tradingview-widget-container__widget"></div>
+            </div>
+            <i class="fas fa-spinner fa-spin text-primary" id="spinnerThree"></i>
+        </div>
+        <div class="flex-item">
+            <div class="tradingview-widget-container"  id="widgetFour">
+                <div class="tradingview-widget-container__widget"></div>
+            </div>
+            <i class="fas fa-spinner fa-spin text-primary" id="spinnerFour"></i>
+        </div> 
+        <div class="flex-item shadow-none d-none d-lg-flex"></div>
+        <div class="flex-item shadow-none d-none d-lg-flex"></div>
+    </div>
+
+    <div id="invest" class="invest section mt-5">
+        <div class="container-fluid px-0">
+            <div class="row m-auto">
+                <div class="layer"></div>
+                {% for package in packages %}
+                    <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 m-auto">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ package.plan }} <span>Plan</span></h5>
+                                <hr>
+                                <h6 class="card-text">{{ package.profit }}% <span>daily profit</span></h6>
+                                <p class="card-text">Starter bonus: <b>{{ package.bonus }}%</b></p>
+                                <p class="card-text">Minimum Amount: <b>${{ package.min_amount }}</b></p>
+                                <p class="card-text">Minimum Period: <b>{{ package.min_days }} days</b></p>
+                                <button type="button" class="invest-btn btn btn-primary" data-bs-toggle="modal" data-redirect="{{ package.plan }}-plan" data-bs-target="#{{ package.plan }}" data-plan="basic" data-profit="0.8" data-bonus="0.5" data-minamount="100" data-mindays="30">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div id="faqs" class="section mt-5 py-lg-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What is Stapfund Investment?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Stapfund Investment is a trusted investment platform offering a range of secure and guaranteed investment opportunities.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How do I start investing?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    To start investing, simply sign up on our platform, verify your account, and choose an investment plan that suits your needs.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Is my investment secure?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, all investments are secured and guaranteed by our platform.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What is the minimum investment amount?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The minimum investment amount varies depending on the investment plan you choose. Please refer to our investment plans for more details.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    How can I withdraw my earnings?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You can withdraw your earnings at any time by requesting a withdrawal through your account dashboard.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Do you offer customer support?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer 24/7 customer support to assist you with any questions or issues you may have.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    How can I contact support?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You can contact our support team through the contact form on our website or by emailing support@stapfund.com.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial col-12 col-md-6 p-5 mt-5 mt-md-0">
+                    <div class="layer"></div>
+                    <div class="position-relative text-center mb-5 w-100">
+                        <h2>What Our Clients Say</h2>
+                    </div>
+                    <div id="testimonialCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <p class="card-text">"As someone who has always been cautious about investments, I was initially hesitant to trust any firm with my savings. However, after working with Stapfund Investment, I can confidently say I made the right decision. Their personalized approach and insightful advice have truly transformed my financial outlook. Highly recommend them!"</p>
+                                        <h5 class="card-title">- Sarah Patel, <small>London, UK</small> </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <p class="card-text">"The team made investing easy to understand and helped me achieve my financial goals faster than I expected. They’re knowledgeable, transparent, and truly care about their clients. It’s been a great experience, and I look forward to continuing our partnership."</p>
+                                        <h5 class="card-title">- Olivia Carter, <small>New York, USA</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <p class="card-text">"I've worked with several investment companies in the past, but none have provided the level of service and success that Stapfund Investment has. They truly go above and beyond to ensure your portfolio is well-managed. I'm so pleased with the results so far."</p>
+                                        <h5 class="card-title">- Charlotte Lee, <small>Ontario, Canada</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <p class="card-text">"What I love most about Stapfund Investment is their clear communication and commitment to helping their clients achieve financial independence. I feel confident and well-informed every step of the way."</p>
+                                        <h5 class="card-title">- Ethan Williams, <small>Florida, USA</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <p class="card-text">"I was new to investing when I reached out to Stapfund Investment, and they guided me through every step. Their team is friendly, professional, and they genuinely care about helping you succeed. I’m thrilled with the results!"</p>
+                                        <h5 class="card-title">- Ava King, <small>Toronto, Canada</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="planModals">
+        {% for package in packages %}
+            <div class="modal fade plan-details" id="{{ package.plan }}" tabindex="-1" aria-labelledby="{{ package.plan }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title p- m-0" id="{{ package.plan }}">{{ package.plan }} <span>Plan</span></h5>
+                            <button type="button" class="btn-close closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% if package.plan == 'Basic' %}
+                                <p>The <b>{{ package.plan }} Plan</b> is designed for new investors looking for a steady return with a manageable investment. It offers a solid daily profit at an affordable entry point and a low minimum commitment period.</p>
+                                <p><b>Daily profit:</b> This investment plan offers a <b>{{ package.profit }}%</b> daily profit, provides reliable and steady growth on your investment.</p>
+                                <p><b>Starter bonus:</b> You will recieve a <b>{{ package.bonus }}%</b> starter bonus to boosts your returns at the beginning, enhancing your total earnings.</p>
+                                <p><b>Minimun amount:</b> The minimun amount required for this investment plan is <b>${{ package.min_amount }}</b> which makes this plan accessible for entry-level investors.</p>
+                                <p><b>Minimun period:</b> The plan requires a minimum of <b>{{ package.min_days }} days</b> before you can withdraw or reinvest, ensuring your investment grows steadily.</b></p>
+                            {% elif package.plan == 'Standard' %}
+                                <p>The <b>{{ package.plan }} Plan</b> is perfect for investors looking to earn a higher return while committing for a longer period. With a reasonable minimum investment, it provides a balanced return.</p>
+                                <p><b>Daily profit:</b> This plan offer a <b>{{ package.profit }}%</b> daily profit, allows for faster growth of your funds over time, with a higher return than the Basic plan.</p>
+                                <p><b>Starter bonus:</b> You get a <b>{{ package.bonus }}%</b> starter bonus which gives a significant boost at the start, enhancing your initial earnings.</p>
+                                <p><b>Minimun amount:</b> The minimum investment for this plan is <b>${{ package.min_amount }}</b>, making it suitable for investors with a moderate budget.</p>
+                                <p><b>Minimun period:</b> You must commit to a minimum of <b>{{ package.min_days }} days</b> before withdrawal, ensuring your investment is working for you in the medium term.</b></p>
+                            {% elif package.plan == 'Premium' %}
+                                <p>The <b>{{ package.plan }} Plan</b> offers a high-return opportunity for investors who are ready to commit to a longer-term strategy. It provides a larger daily profit along with an attractive starter bonus.</p>
+                                <p><b>Daily profit:</b> Comes with a <b>{{ package.profit }}%</b> daily profit which offers significant daily returns, making it a great choice for those seeking higher growth over time.</p>
+                                <p><b>Starter bunus:</b> You get a <b>{{ package.bonus }}%</b> starter bonus which is a rewarding incentive, giving you a boost right from the start.</p>
+                                <p><b>Minimum amount:</b> The minimum investment is <b>${{ package.min_amount }}</b>, catering to more experienced investors looking for higher earnings.</p>
+                                <p><b>Minimum period:</b> This plan requires a commitment of <b>{{ package.min_days }} days</b> before withdrawal, allowing your investment to mature for better returns.</p>
+                            {% else %}
+                                <p>The <b>{{ package.plan }} Plan</b> is the top-tier option for serious investors who are ready to make a large commitment for the highest returns. It offers the best daily profit and starter bonus, making it ideal for those looking for the ultimate investment opportunity.</p>
+                                <p><b>Daily profit:</b> Offers the highest return rate of <b>{{ package.profit }}%</b> daily profit, providing exceptional daily earnings.</p>
+                                <p><b>Starter bonus:</b> Comes with a <b>{{ package.bonus }}%</b> starter bonus which gives you an impressive boost from the beginning, maximizing your total returns.</p>
+                                <p><b>Minimum amount:</b> The minimum investment is <b>${{ package.min_amount }}</b>, designed for experienced and high-commitment investors.</p>
+                                <p><b>Minimum period:</b> This plan requires a minimum of <b>{{ package.min_days }} days</b> before withdrawal. Allowing your capital to grow over an extended period.</p>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer mf1">
+                            {% if request.user.is_authenticated and request.user.is_verified %}
+                                <a class="btn btn-primary goto_investment">Invest Now &nbsp;<i class="fas fa-chart-line"></i></a>
+                            {% elif request.user.is_authenticated and not request.user.is_verified %}
+                                <a href="#verifyEmail" class="show_ver_email btn btn-primary">Invest Now &nbsp;<i class="fas fa-chart-line"></i></a>
+                            {% else %}
+                                <a href="#modal" class="modal_trigger btn btn-primary">Invest Now &nbsp;<i class="fas fa-chart-line"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+{% block altjs %}
+    <script>
+        window.onload = function() {
+            if (window.location.hash) {
+                document.querySelector(window.location.hash).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        };
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let getSelectedPackage;
+            const investBtns = document.querySelectorAll('.invest-btn');
+            investBtns.forEach(investBtn => {
+                investBtn.addEventListener('click', function() {
+                    const selectedPackage = investBtn.getAttribute('data-redirect');
+                    localStorage.setItem('selectedPackage', selectedPackage.toLowerCase());
+                    getSelectedPackage = localStorage.getItem('selectedPackage');
+                });
+            });
+
+            const goto_investment = document.querySelectorAll('.goto_investment');
+            goto_investment.forEach(goto_invest => {
+                goto_invest.addEventListener('click', function() {
+                    window.location.href = `/invest/${getSelectedPackage}/`;
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            let delay = 0; // Starting delay for sequential animation
+
+            counters.forEach((counter, index) => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds for each counter
+                const step = Math.ceil(target / duration * 50); // Increase steps based on target
+
+                let current = 0;
+                const updateCounter = () => {
+                    current += step;
+                    if (current <= target) {
+                        counter.innerText = formatNumber(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = formatNumber(target);
+                    }
+                };
+
+                setTimeout(() => {
+                    counter.style.opacity = 1;
+                    updateCounter();
+                }, delay);
+                delay += 2000;
+            });
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000) + 'K';
+            } else {
+                return num;
+            }
+        }
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target); // Stop observing once animation starts
+                }
+            });
+        }, {
+            threshold: 0.5 
+        });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            observer.observe(counter);
+        });
+    </script>
+    
+    <script src="{% static 'js/widgets.js' %} "></script>
+    
+{% endblock %}
+
